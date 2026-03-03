@@ -1,0 +1,17 @@
+{
+  "name": "status-page",
+  "version": "1.0.0",
+  "description": "Personal status page powered by Cloudflare Workers",
+  "type": "module",
+  "main": "src/worker.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "wrangler": "^3.101.0",
+    "vitest": "^2.1.9",
+    "@cloudflare/workers-types": "^4.20241205.0"
+  }
+}
