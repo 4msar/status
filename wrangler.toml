@@ -4,8 +4,8 @@ compatibility_date = "2024-12-05"
 
 [[kv_namespaces]]
 binding = "STATUS_KV"
-id = "YOUR_KV_NAMESPACE_ID"
-preview_id = "YOUR_KV_NAMESPACE_PREVIEW_ID"
+id = "3649b85964d649ea9dceda130f30b836"
+preview_id = "3649b85964d649ea9dceda130f30b836"
 
 [vars]
 # AUTH_TOKEN is a secret – set it with: wrangler secret put AUTH_TOKEN
