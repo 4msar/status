@@ -19,15 +19,15 @@
 
             :root {
                 --bg: #0d0d0d;
-                --text: #f0f0f0;
-                --muted: #888;
+                --text: #ffffff;
+                --muted: #849cbd;
                 --accent: #6ee7b7;
             }
 
             body.light {
                 --bg: #f5f5f5;
-                --text: #111;
-                --muted: #666;
+                --text: #0d0d0d;
+                --muted: #62748e;
                 --accent: #059669;
             }
 
@@ -159,6 +159,26 @@
                 body {
                     justify-content: center;
                 }
+            }
+
+            /* bg from: https://patterncraft.fun/ */
+            body {
+                background: #0f172a;
+                background-image: radial-gradient(
+                    circle at 1px 1px,
+                    rgba(255, 255, 255, 0.15) 1px,
+                    transparent 0
+                );
+                background-size: 20px 20px;
+            }
+            body.light {
+                background: #ffffff;
+                background-image: radial-gradient(
+                    circle at 1px 1px,
+                    rgba(0, 0, 0, 0.15) 1px,
+                    transparent 0
+                );
+                background-size: 20px 20px;
             }
         </style>
     </head>
