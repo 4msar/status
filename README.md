@@ -1,4 +1,4 @@
-# status
+# Status
 
 Personal status page powered by **Cloudflare Workers** + **KV**.
 
@@ -45,7 +45,7 @@ npx wrangler secret put AUTH_TOKEN
 npm run deploy
 ```
 
-Set up a custom domain in the Cloudflare dashboard (e.g. `status.yourdomain.com`).
+Set up a custom domain in the Cloudflare dashboard (e.g. `status.msar.me`).
 
 ---
 
@@ -54,7 +54,7 @@ Set up a custom domain in the Cloudflare dashboard (e.g. `status.yourdomain.com`
 ### Update status from iPhone / Mac / cURL
 
 ```bash
-curl -X POST https://status.yourdomain.com/api/status \
+curl -X POST https://status.msar.me/api/status \
   -H "Authorization: Bearer YOUR_AUTH_TOKEN" \
   -H "Content-Type: application/json" \
   -d '{"status": "coding", "message": "Building something cool"}'
@@ -62,27 +62,28 @@ curl -X POST https://status.yourdomain.com/api/status \
 
 ### Built-in status presets
 
-| Key          | Icon | Label                |
-|--------------|------|----------------------|
-| `phone`      | 📱   | On my phone          |
-| `working`    | 💻   | Working              |
-| `coding`     | 👨‍💻   | Writing code         |
-| `sleeping`   | 😴   | Sleeping             |
-| `watching`   | 🎬   | Watching something   |
-| `gaming`     | 🎮   | Gaming               |
-| `eating`     | 🍽️   | Having a meal        |
-| `commuting`  | 🚗   | Commuting            |
-| `exercising` | 🏃   | Exercising           |
-| `reading`    | 📚   | Reading              |
-| `away`       | 🌙   | Away                 |
-| `available`  | ✅   | Available            |
+| Key          | Icon | Label              |
+| ------------ | ---- | ------------------ |
+| `phone`      | 📱   | On my phone        |
+| `working`    | 💻   | Working            |
+| `coding`     | 👨‍💻   | Writing code       |
+| `sleeping`   | 😴   | Sleeping           |
+| `watching`   | 🎬   | Watching something |
+| `praying`    | 🎮   | Praying            |
+| `gaming`     | 🎮   | Gaming             |
+| `eating`     | 🍽️   | Having a meal      |
+| `commuting`  | 🚗   | Commuting          |
+| `exercising` | 🏃   | Exercising         |
+| `reading`    | 📚   | Reading            |
+| `away`       | 🌙   | Away               |
+| `available`  | ✅   | Available          |
 
 You can also pass custom `icon` and `label` fields to override any preset.
 
 ### Get current status (JSON)
 
 ```bash
-curl https://status.yourdomain.com/api/status
+curl https://status.msar.me/api/status
 ```
 
 ---
