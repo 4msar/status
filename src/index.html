@@ -41,7 +41,7 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                justify-content: center;
+                justify-content: space-between;
                 padding: 2rem;
                 text-align: center;
                 transition:
@@ -82,7 +82,7 @@
             }
 
             .status-label {
-                font-size: 2.5rem;
+                font-size: clamp(2.5rem, 10vw, 5rem);
                 font-weight: 700;
                 line-height: 1.2;
                 margin-bottom: 0.75rem;
@@ -155,21 +155,29 @@
                 .status-icon {
                     font-size: 4rem;
                 }
+
+                body {
+                    justify-content: center;
+                }
             }
         </style>
     </head>
     <body>
-        <div class="content">
+        <header>
             <p class="page-title"><span class="dot"></span>{{TITLE}}</p>
-            <span
-                class="status-icon"
-                role="img"
-                aria-label="{{STATUS_ARIA_LABEL}}"
-                >{{STATUS_ICON}}</span
-            >
-            <h1 class="status-label">{{STATUS_LABEL}}</h1>
-            {{STATUS_MESSAGE_HTML}} {{UPDATED_AT_HTML}}
-        </div>
+        </header>
+        <main>
+            <div class="content">
+                <span
+                    class="status-icon"
+                    role="img"
+                    aria-label="{{STATUS_ARIA_LABEL}}"
+                    >{{STATUS_ICON}}</span
+                >
+                <h1 class="status-label">{{STATUS_LABEL}}</h1>
+                {{STATUS_MESSAGE_HTML}} {{UPDATED_AT_HTML}}
+            </div>
+        </main>
         <footer>
             <a
                 href="https://github.com/4msar/status"

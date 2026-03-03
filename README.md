@@ -69,7 +69,7 @@ curl -X POST https://status.msar.me/api/status \
 | `coding`     | 👨‍💻   | Writing code       |
 | `sleeping`   | 😴   | Sleeping           |
 | `watching`   | 🎬   | Watching something |
-| `praying`    | 🎮   | Praying            |
+| `praying`    | 🕌   | Praying            |
 | `gaming`     | 🎮   | Gaming             |
 | `eating`     | 🍽️   | Having a meal      |
 | `commuting`  | 🚗   | Commuting          |
