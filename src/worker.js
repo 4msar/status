@@ -113,11 +113,16 @@ function buildHtml(status, pageTitle) {
 
     :root {
       --bg: #0d0d0d;
-      --surface: #1a1a1a;
       --text: #f0f0f0;
       --muted: #888;
       --accent: #6ee7b7;
-      --radius: 1.5rem;
+    }
+
+    body.light {
+      --bg: #f5f5f5;
+      --text: #111;
+      --muted: #666;
+      --accent: #059669;
     }
 
     body {
@@ -131,15 +136,12 @@ function buildHtml(status, pageTitle) {
       justify-content: center;
       padding: 2rem;
       text-align: center;
+      transition: background 0.2s, color 0.2s;
     }
 
-    .card {
-      background: var(--surface);
-      border-radius: var(--radius);
-      padding: 3rem 4rem;
-      max-width: 640px;
+    .content {
+      max-width: 480px;
       width: 100%;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
       animation: fadeIn 0.4s ease;
     }
 
@@ -201,25 +203,48 @@ function buildHtml(status, pageTitle) {
       margin-top: 2.5rem;
       font-size: 0.75rem;
       color: var(--muted);
-      opacity: 0.5;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    #theme-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      color: var(--muted);
+      padding: 0;
+      line-height: 1;
     }
 
     @media (max-width: 480px) {
-      .card { padding: 2rem 1.5rem; }
       .status-label { font-size: 1.9rem; }
       .status-icon  { font-size: 4rem; }
     }
   </style>
 </head>
 <body>
-  <div class="card">
+  <div class="content">
     <p class="page-title"><span class="dot"></span>${escapeHtml(title)}</p>
     <span class="status-icon" role="img" aria-label="${escapeHtml(status.label)}">${escapeHtml(status.icon)}</span>
     <h1 class="status-label">${escapeHtml(status.label)}</h1>
     ${status.message ? `<p class="status-message">${escapeHtml(status.message)}</p>` : ""}
     ${updatedAtHtml}
   </div>
-  <footer>status page · powered by cloudflare workers</footer>
+  <footer>
+    <a href="https://github.com/4msar/status" target="_blank" rel="noopener noreferrer">msar.me</a>
+    <button id="theme-toggle" aria-label="Toggle theme" title="Toggle dark/light theme">🌙</button>
+  </footer>
 
   <script>
     // Pretty-print the "last updated" timestamp in the visitor's local timezone
@@ -231,6 +256,17 @@ function buildHtml(status, pageTitle) {
         timeStyle: "short",
       });
     }
+
+    // Dark/light theme toggle
+    const btn = document.getElementById("theme-toggle");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    let isDark = prefersDark;
+    function applyTheme() {
+      document.body.classList.toggle("light", !isDark);
+      btn.textContent = isDark ? "🌙" : "☀️";
+    }
+    applyTheme();
+    btn.addEventListener("click", () => { isDark = !isDark; applyTheme(); });
   </script>
 </body>
 </html>`;
