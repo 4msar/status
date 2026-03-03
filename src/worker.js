@@ -107,12 +107,12 @@ function buildHtml(status, pageTitle) {
         : "";
 
     return htmlTemplate
-        .replace(/\{\{TITLE\}\}/g, escapeHtml(title))
-        .replace("{{STATUS_ARIA_LABEL}}", escapeHtml(status.label))
-        .replace("{{STATUS_ICON}}", escapeHtml(status.icon))
-        .replace("{{STATUS_LABEL}}", escapeHtml(status.label))
-        .replace("{{STATUS_MESSAGE_HTML}}", messageHtml)
-        .replace("{{UPDATED_AT_HTML}}", updatedAtHtml);
+        .replaceAll(/\{\{TITLE\}\}/g, escapeHtml(title))
+        .replaceAll("{{STATUS_ARIA_LABEL}}", escapeHtml(status.label))
+        .replaceAll("{{STATUS_ICON}}", escapeHtml(status.icon))
+        .replaceAll("{{STATUS_LABEL}}", escapeHtml(status.label))
+        .replaceAll("{{STATUS_MESSAGE_HTML}}", messageHtml)
+        .replaceAll("{{UPDATED_AT_HTML}}", updatedAtHtml);
 }
 
 /** Minimal HTML escaping to prevent XSS when embedding status data */
