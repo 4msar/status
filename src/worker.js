@@ -71,9 +71,9 @@ async function updateStatus(request, env) {
 
     const newStatus = {
         key,
-        label: label || preset?.label ?? key,
-        icon: icon || preset?.icon ?? "💬",
-        message: message || preset?.label ?? key,
+        label: label || preset?.label || key,
+        icon: icon || preset?.icon || "💬",
+        message: message || preset?.label || key,
         updatedAt: new Date().toISOString(),
     };
 
