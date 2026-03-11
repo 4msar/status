@@ -23,7 +23,6 @@ const router = new Router();
 router.cors({
     allowHeaders: ["Authorization", "Content-Type"],
     allowMethods: ["GET", "POST", "OPTIONS"],
-    maxAge: 86400,
     allowOrigin: "*",
 });
 
