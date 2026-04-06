@@ -37,6 +37,12 @@ export async function getStatus(env) {
     }
 }
 
+function capitalize(str) {
+  if (!str) return "";
+
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 export async function updateStatus(request, env) {
     // Auth check
     const authHeader = request.headers.get("Authorization") ?? "";
@@ -62,7 +68,7 @@ export async function updateStatus(request, env) {
 
     const newStatus = {
         key,
-        label: label || preset?.label || key,
+        label: capitalize(label || preset?.label || key),
         icon: icon || preset?.icon || "💬",
         message: message || preset?.label || key,
         updatedAt: new Date().toISOString(),
